@@ -52,8 +52,15 @@
 }
 
 /* ===== bundleIcon: Hidden Variant ===== */
+/*
+ * `!important` because hidden is a state, not a default. Consumers import this file into a
+ * cascade layer, and the Griffel-compiled icon components carry an UNLAYERED base class
+ * setting `display: inline` — which beats any layered normal declaration. Importance
+ * inverts layer priority, so this survives; a consumer showing the inactive variant
+ * (hover glyph swap) overrides it with an important declaration of higher specificity.
+ */
 [data-fui-icon-hidden] {
-  display: none;
+  display: none !important;
 }
 
 /* ===== Font Icon Family Variants ===== */
