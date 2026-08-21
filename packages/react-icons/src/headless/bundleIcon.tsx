@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { cx, iconFilledClassName, iconRegularClassName, DATA_FUI_ICON_HIDDEN } from './shared';
+import { cx, iconFilledClassName, iconRegularClassName, DATA_FUI_ICON_HIDDEN, DATA_VARIANT } from './shared';
 import type { FluentIcon } from './shared';
 
 /**
@@ -18,11 +18,13 @@ export const bundleIcon = (FilledIcon: FluentIcon, RegularIcon: FluentIcon): Flu
         <FilledIcon
           {...rest}
           className={cx(iconFilledClassName, className)}
+          {...{ [DATA_VARIANT]: 'filled' }}
           {...(!filled ? { [DATA_FUI_ICON_HIDDEN]: '' } : undefined)}
         />
         <RegularIcon
           {...rest}
           className={cx(iconRegularClassName, className)}
+          {...{ [DATA_VARIANT]: 'regular' }}
           {...(filled ? { [DATA_FUI_ICON_HIDDEN]: '' } : undefined)}
         />
       </React.Fragment>
